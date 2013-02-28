@@ -21,6 +21,19 @@ To save them inside Linkbird board use mountrw command
 
 Do a "zcat /proc/config.gz" to see original kernel config
 
+I had to compile those modules in order to use GPS devices and I'll put some advice here:
+
+Linkbird comes with gpsd 2.33 and can't probe some gps modules.
+
+Do:
+
+killall gpsd
+stty -F /dev/ttyUSB0 115200
+gpsd /dev/ttyUSB0
+
+/* where 115200 is usually 4800 (look at gps specs) */
+
+
 Iker De Echaniz Herce
 
 
