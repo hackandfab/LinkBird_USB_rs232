@@ -1,0 +1,28 @@
+Linbird_USBrs232
+================
+
+NEC Linkbird mips(el) Linux USB-serial modules
+
+NEC didn't provide Linux kernel sources for its Linkbird MX series so I managed to compile a vanilla Linux 2.16.19 kernel for its 64 bit mips cpu.
+
+Although they announce it as 64 bit mips, it is running at 32 bit and modules had to be compiled for 32 bit little endian mips (mipsel)
+
+The stock kernel didn't allow USB-serial devices (only cypress M8 was compiled)
+
+Since they didn't release their kernel sources modprobe won't work and insmod has to be used.
+
+To use them do the following:
+
+modprobe usb-serial
+
+insmod theserialmoduleyouwant.ko
+
+To save them inside Linkbird board use mountrw command
+
+Do a "zcat /proc/config.gz" to see original kernel config
+
+Iker De Echaniz Herce
+
+
+
+
